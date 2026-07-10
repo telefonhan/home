@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telefonhan - Home</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Modern ve Saf Siyah Arayüz Ayarları */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000000; /* Tam siyah arka plan */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+
+        /* Üst Header Alanı */
+        .main-header {
+            background: #090909;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Mükemmel Logo Yerleşimi */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .site-logo {
+            height: 40px;        
+            width: auto;         
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Sağ Üst Sosyal Linkler */
+        .header-links a {
+            color: #666666;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .header-links a:hover {
+            color: #0088ff;
+        }
+
+        /* KARŞILAMA VE MERKEZİ ALAN */
+        .hero-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #888888;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        /* DEPO BUTONLARI GRID YAPISI */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        /* Kart ve Buton Tasarımı */
+        .portal-card {
+            background: #090909;
+            border: 1px solid #1a1a1a;
+            border-radius: 6px;
+            padding: 35px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        /* Kartların Üzerine Gelince Parlama Efekti */
+        .portal-card:hover {
+            border-color: #0088ff;
+            background: #0d0d0d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 136, 255, 0.05);
+        }
+
+        /* Kart İkonları */
+        .portal-card i {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #555555;
+            transition: color 0.25s;
+        }
+
+        .portal-card:hover i {
+            color: #0088ff;
+        }
+
+        /* Kart Başlıkları */
+        .portal-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Kart Açıklamaları */
+        .portal-card p {
+            font-size: 0.85rem;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* FOOTER ALT BİLGİ */
+        .main-footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 0.8rem;
+            color: #333333;
+            border-top: 1px solid #090909;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="https://telefonhan.github.io/home">
+                <img src="logo.png" alt="Telefonhan Logo" class="site-logo">
+            </a>
+        </div>
+        <div class="header-links">
+            <a href="https://github.com/telefonhan" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="hero-container">
+        <h1 class="hero-title">Telefonhan Ecosystem</h1>
+        <p class="hero-subtitle">Android dünyasına yönelik özelleştirilmiş çözümler, güncel arşivler ve topluluk merkezi.</p>
+        
+        <div class="portal-grid">
+            
+            <a href="https://telefonhan.github.io/roms" class="portal-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Rom Arşivimiz</h3>
+                <p>Cihazlarınız için derlenmiş ve test edilmiş en güncel Custom ROM ve Recovery arşivi.</p>
+            </a>
+
+            <a href="https://telefonhan.github.io/gapps" class="portal-card">
+                <i class="fa-brands fa-google"></i>
+                <h3>Gapps Projemiz</h3>
+                <p>Sisteminiz için optimize edilmiş, hafif ve kararlı Google servis paketleri.</p>
+            </a>
+
+            <a href="https://telefonhan.github.io/forum" class="portal-card">
+                <i class="fa-solid fa-comments"></i>
+                <h3>Forum Sayfamız</h3>
+                <p>Kullanıcı rehberleri, yardım talepleri ve Android modlama üzerine bilgi paylaşım alanı.</p>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        &copy; 2026 Telefonhan Project. Tüm Hakları Saklıdır.
+    </footer>
+
+</body>
+</html>
