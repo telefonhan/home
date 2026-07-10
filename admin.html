@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Telefonhan - Admin Panel</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; padding: 40px; }
+        .box { max-width: 500px; margin: 0 auto; background: #090909; border: 1px solid #1a1a1a; padding: 30px; border-radius: 6px; }
+        h2 { margin-bottom: 20px; color: #0088ff; text-align: center;}
+        label { display: block; margin: 15px 0 5px; font-size: 0.85rem; color: #888; }
+        input { width: 100%; padding: 10px; background: #000; border: 1px solid #222; color: #fff; border-radius: 4px; }
+        button { width: 100%; padding: 12px; background: #0088ff; border: none; color: #fff; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #0066cc; }
+        .status { text-align: center; margin-top: 15px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Telefonhan Kontrol Paneli</h2>
+    
+    <label>GitHub Personal Access Token (Şifreniz)</label>
+    <input type="password" id="token" placeholder="github_pat_...">
+
+    <label>Desteklenen Cihaz Sayısı</label>
+    <input type="text" id="cihazlar">
+
+    <label>Toplam İndirme</label>
+    <input type="text" id="indirme">
+
+    <label>Yayınlanan Sürüm</label>
+    <input type="text" id="surumler">
+
+    <label>Son Eklenen ROM</label>
+    <input type="text" id="son_rom">
+
+    <label>Son Gapps Paketi</label>
+    <input type="text" id="son_gapps">
+
+    <button onclick="updateData()">Verileri Güncelle ve Yayınla</button>
+    <div class="status" id="status"></div>
+</div>
+
+<script>
+    const repoOwner = "telefonhan"; 
+    const repoName = "home"; // Eğer ana sayfa 'home' reposundaysa aynen bırakın, 'telefonhan.github.io' reposundaysa onu yazın.
+    const filePath = "data.json";
+
+    // Sayfa açıldığında mevcut verileri yükle
+    fetch('data.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById('cihazlar').value = data.cihazlar;
+            document.getElementById('indirme').value = data.indirme;
+            document.getElementById('surumler').value = data.surumler;
+            document.getElementById('son_rom').value = data.son_rom;
+            document.getElementById('son_gapps').value = data.son_gapps;
+        });
+
+    async function updateData() {
+        const token = document.getElementById('token').value;
+        const statusDiv = document.getElementById('status');
+        
+        if(!token) { alert("Lütfen GitHub Token girin!"); return; }
+        statusDiv.innerText = "Bağlanıyor...";
+
+        const newData = {
+            cihazlar: document.getElementById('cihazlar').value,
+            indirme: document.getElementById('indirme').value,
+            surumler: document.getElementById('surumler').value,
+            son_rom: document.getElementById('son_rom').value,
+            son_gapps: document.getElementById('son_gapps').value
+        };
+
+        try {
+            // Önce GitHub üzerindeki mevcut dosyanın SHA değerini almamız gerek
+            const getUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+            const res = await fetch(getUrl, {
+                headers: { "Authorization": `token ${token}` }
+            });
+            
+            if(!res.ok) throw new Error("Token geçersiz veya repo bulunamadı.");
+            
+            const fileData = await res.json();
+            const sha = fileData.sha;
+
+            // Şimdi dosyayı yeni veriyle güncelleyelim
+            const updatedContent = btoa(unescape(encodeURIComponent(JSON.stringify(newData, null, 2))));
+            
+            const putRes = await fetch(getUrl, {
+                method: "PUT",
+                headers: {
+                    "Authorization": `token ${token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: "Admin paneli üzerinden istatistikler güncellendi",
+                    content: updatedContent,
+                    sha: sha
+                })
+            });
+
+            if(putRes.ok) {
+                statusDiv.style.color = "#00ff00";
+                statusDiv.innerText = "Başarıyla Güncellendi! 1-2 dakika içinde sitede aktif olur.";
+            } else {
+                throw new Error("Yazma hatası oluştu.");
+            }
+
+        } catch(err) {
+            statusDiv.style.color = "#ff0000";
+            statusDiv.innerText = "Hata: " + err.message;
+        }
+    }
+</script>
+</body>
+</html>
