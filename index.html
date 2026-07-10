@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telefonhan - Home</title>
     
+    <!-- TARAYICI SEKMESİ İÇİN LOGO (FAVICON) -->
     <link rel="icon" type="image/png" href="logo.png">
     
+    <!-- İkonlar İçin FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -50,10 +52,15 @@
             object-fit: contain;
         }
 
-        /* Sağ Üst Sosyal Linkler */
+        /* Sağ Üst Hızlı Sosyal Linkler */
+        .header-links {
+            display: flex;
+            gap: 15px;
+        }
+
         .header-links a {
             color: #666666;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -62,29 +69,33 @@
             color: #0088ff;
         }
 
-        /* KARŞILAMA VE MERKEZİ ALAN */
-        .hero-container {
+        /* ANA KONTEYNER */
+        .container {
             max-width: 1000px;
-            margin: 60px auto;
+            margin: 40px auto;
             padding: 0 20px;
-            text-align: center;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
+        /* Karşılama Başlığı */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
         .hero-title {
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
         .hero-subtitle {
             font-size: 1rem;
             color: #888888;
-            margin-bottom: 50px;
             line-height: 1.6;
         }
 
@@ -93,7 +104,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-top: 10px;
+            margin-bottom: 50px;
         }
 
         /* Kart ve Buton Tasarımı */
@@ -147,6 +158,78 @@
             line-height: 1.5;
         }
 
+        /* İLETİŞİM VE SOSYAL MEDYA BÖLÜMÜ */
+        .contact-section {
+            background: #050505;
+            border: 1px solid #111111;
+            border-radius: 6px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .contact-section p {
+            font-size: 0.85rem;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        /* Sosyal Medya Buton Satırı */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Sosyal Buton Link Tasarımları */
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #090909;
+            border: 1px solid #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        /* Butonların Üzerine Gelince Renk Değişimleri */
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-btn.mail:hover {
+            border-color: #0088ff;
+            color: #0088ff;
+        }
+
+        .social-btn.youtube:hover {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .social-btn.instagram:hover {
+            border-color: #e1306c;
+            color: #e1306c;
+        }
+
+        .social-btn.github:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
         /* FOOTER ALT BİLGİ */
         .main-footer {
             text-align: center;
@@ -159,37 +242,47 @@
 </head>
 <body>
 
+    <!-- ÜST BAR -->
     <header class="main-header">
+        <!-- Mükemmel Logo (Tıklanınca yine Home sayfasına atar) -->
         <div class="logo-container">
             <a href="https://telefonhan.github.io/home">
                 <img src="logo.png" alt="Telefonhan Logo" class="site-logo">
             </a>
         </div>
+        <!-- Sağ Üst Hızlı Erişim Linkleri -->
         <div class="header-links">
-            <a href="https://github.com/telefonhan" target="_blank" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
+            <a href="https://github.com/telefonhan" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
     </header>
 
-    <main class="hero-container">
-        <h1 class="hero-title">Telefonhan Ecosystem</h1>
-        <p class="hero-subtitle">Android dünyasına yönelik özelleştirilmiş çözümler, güncel arşivler ve topluluk merkezi.</p>
+    <!-- PROJE PORTALI / ANA ALAN -->
+    <main class="container">
         
+        <!-- Karşılama Girişi -->
+        <section class="hero-section">
+            <h1 class="hero-title">Telefonhan Ecosystem</h1>
+            <p class="hero-subtitle">Android dünyasına yönelik özelleştirilmiş çözümler, güncel arşivler ve topluluk merkezi.</p>
+        </section>
+        
+        <!-- DEPOLARA GİDEN REPO BUTONLARI -->
         <div class="portal-grid">
             
+            <!-- 1. ROM ARŞİVİMİZ BUTONU -->
             <a href="https://telefonhan.github.io/roms" class="portal-card">
                 <i class="fa-solid fa-microchip"></i>
                 <h3>Rom Arşivimiz</h3>
                 <p>Cihazlarınız için derlenmiş ve test edilmiş en güncel Custom ROM ve Recovery arşivi.</p>
             </a>
 
+            <!-- 2. GAPPS PROJEMİZ BUTONU -->
             <a href="https://telefonhan.github.io/gapps" class="portal-card">
                 <i class="fa-brands fa-google"></i>
                 <h3>Gapps Projemiz</h3>
                 <p>Sisteminiz için optimize edilmiş, hafif ve kararlı Google servis paketleri.</p>
             </a>
 
+            <!-- 3. FORUM SAYFAMIZ BUTONU -->
             <a href="https://telefonhan.github.io/forum" class="portal-card">
                 <i class="fa-solid fa-comments"></i>
                 <h3>Forum Sayfamız</h3>
@@ -197,8 +290,35 @@
             </a>
 
         </div>
+
+        <!-- İLETİŞİM VE SOSYAL MEDYA ALANI -->
+        <section class="contact-section">
+            <h2>İletişim & Topluluk</h2>
+            <p>Bizimle iletişime geçmek, projeleri takip etmek veya topluluğa katılmak için aşağıdaki platformları kullanabilirsiniz.</p>
+            
+            <div class="social-buttons">
+                <!-- Mail Atma Butonu -->
+                <a href="mailto:iletisim@telefonhan.com" class="social-btn mail">
+                    <i class="fa-solid fa-envelope"></i> E-posta Gönder
+                </a>
+                <!-- Güncellenmiş YouTube Butonu -->
+                <a href="https://youtube.com/@Telefonhan" target="_blank" class="social-btn youtube">
+                    <i class="fa-brands fa-youtube"></i> YouTube
+                </a>
+                <!-- Güncellenmiş Instagram Butonu -->
+                <a href="https://instagram.com/telefonhan" target="_blank" class="social-btn instagram">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <!-- GitHub Butonu -->
+                <a href="https://github.com/telefonhan" target="_blank" class="social-btn github">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </section>
+
     </main>
 
+    <!-- ALT BİLGİ -->
     <footer class="main-footer">
         &copy; 2026 Telefonhan Project. Tüm Hakları Saklıdır.
     </footer>
