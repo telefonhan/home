@@ -4,83 +4,282 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telefonhan - Home</title>
+    
+    <!-- TARAYICI SEKMESİ İÇİN LOGO (FAVICON) -->
     <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- İkonlar İçin FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #000000; color: #ffffff; display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between; }
-        .main-header { background: #090909; border-bottom: 1px solid #1a1a1a; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
-        .site-logo { height: 40px; width: auto; display: block; object-fit: contain; }
-        .header-links a { color: #666666; font-size: 1.2rem; text-decoration: none; transition: color 0.2s; }
-        .header-links a:hover { color: #0088ff; }
+        /* Modern ve Saf Siyah Arayüz Ayarları */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: Arial, sans-serif; 
+        }
         
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; flex: 1; }
-        .hero-section { text-align: center; margin-bottom: 40px; }
-        .hero-title { font-size: 2.5rem; font-weight: bold; margin-bottom: 12px; letter-spacing: -0.5px; }
-        .hero-subtitle { font-size: 1rem; color: #888888; }
+        body { 
+            background-color: #000000; /* Tam siyah arka plan */
+            color: #ffffff; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            justify-content: space-between; 
+        }
+        
+        /* Üst Header Alanı */
+        .main-header { 
+            background: #090909; 
+            border-bottom: 1px solid #1a1a1a; 
+            padding: 15px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .site-logo { 
+            height: 40px; 
+            width: auto; 
+            display: block; 
+            object-fit: contain; 
+        }
+        
+        .header-links a { 
+            color: #666666; 
+            font-size: 1.2rem; 
+            text-decoration: none; 
+            transition: color 0.2s; 
+        }
+        
+        .header-links a:hover { 
+            color: #0088ff; 
+        }
+        
+        /* ANA KONTEYNER */
+        .container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            flex: 1; 
+        }
+        
+        .hero-section { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+        
+        .hero-title { 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            margin-bottom: 12px; 
+            letter-spacing: -0.5px; 
+        }
+        
+        .hero-subtitle { 
+            font-size: 1rem; 
+            color: #888888; 
+        }
 
-        /* CANLI İSTATİSTİKLER */
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; text-align: center; }
-        .stat-card { background: #050505; border: 1px solid #111111; padding: 20px; border-radius: 6px; }
-        .stat-number { font-size: 2rem; font-weight: bold; color: #0088ff; margin-bottom: 5px; }
-        .stat-label { font-size: 0.8rem; color: #666666; text-transform: uppercase; letter-spacing: 1px; }
+        /* CANLI ANİMASYONLU İSTATİSTİKLER */
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            margin-bottom: 40px; 
+            text-align: center; 
+        }
+        
+        .stat-card { 
+            background: #050505; 
+            border: 1px solid #111111; 
+            padding: 20px; 
+            border-radius: 6px; 
+        }
+        
+        .stat-number { 
+            font-size: 2rem; 
+            font-weight: bold; 
+            color: #0088ff; 
+            margin-bottom: 5px; 
+        }
+        
+        .stat-label { 
+            font-size: 0.8rem; 
+            color: #666666; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
 
-        /* SON GELİŞMELER */
-        .live-updates { background: #050505; border: 1px solid #111111; padding: 20px; border-radius: 6px; margin-bottom: 40px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; font-size: 0.9rem; }
-        .update-item span { color: #888888; }
-        .update-item strong { color: #0088ff; }
+        /* SON GELİŞMELER SEKMESİ */
+        .live-updates { 
+            background: #050505; 
+            border: 1px solid #111111; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 40px; 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            font-size: 0.9rem; 
+        }
+        
+        .update-item span { 
+            color: #888888; 
+        }
+        
+        .update-item strong { 
+            color: #0088ff; 
+        }
 
-        .portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .portal-card { background: #090909; border: 1px solid #1a1a1a; border-radius: 6px; padding: 35px 20px; text-align: center; text-decoration: none; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.25s ease; }
-        .portal-card:hover { border-color: #0088ff; background: #0d0d0d; transform: translateY(-3px); }
-        .portal-card i { font-size: 2.2rem; margin-bottom: 15px; color: #555555; }
-        .portal-card:hover i { color: #0088ff; }
-        .portal-card h3 { font-size: 1.25rem; font-weight: bold; margin-bottom: 10px; }
-        .portal-card p { font-size: 0.85rem; color: #666666; line-height: 1.5; }
+        /* DEPO BUTONLARI GRID YAPISI */
+        .portal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 50px; 
+        }
+        
+        .portal-card { 
+            background: #090909; 
+            border: 1px solid #1a1a1a; 
+            border-radius: 6px; 
+            padding: 35px 20px; 
+            text-align: center; 
+            text-decoration: none; 
+            color: #ffffff; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            transition: all 0.25s ease; 
+        }
+        
+        .portal-card:hover { 
+            border-color: #0088ff; 
+            background: #0d0d0d; 
+            transform: translateY(-3px); 
+        }
+        
+        .portal-card i { 
+            font-size: 2.2rem; 
+            margin-bottom: 15px; 
+            color: #555555; 
+            transition: color 0.25s;
+        }
+        
+        .portal-card:hover i { 
+            color: #0088ff; 
+        }
+        
+        .portal-card h3 { 
+            font-size: 1.25rem; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+        }
+        
+        .portal-card p { 
+            font-size: 0.85rem; 
+            color: #666666; 
+            line-height: 1.5; 
+        }
 
-        .contact-section { background: #050505; border: 1px solid #111111; border-radius: 6px; padding: 30px; text-align: center; }
-        .contact-section h2 { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
-        .contact-section p { font-size: 0.85rem; color: #666666; margin-bottom: 20px; }
-        .social-buttons { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .social-btn { display: inline-flex; align-items: center; gap: 8px; background: #090909; border: 1px solid #1a1a1a; color: #ffffff; text-decoration: none; padding: 10px 18px; font-size: 0.85rem; border-radius: 4px; font-weight: bold; transition: all 0.2s ease; }
-        .social-btn:hover { transform: translateY(-2px); }
+        /* İLETİŞİM ALANI */
+        .contact-section { 
+            background: #050505; 
+            border: 1px solid #111111; 
+            border-radius: 6px; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        
+        .contact-section h2 { 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+        }
+        
+        .contact-section p { 
+            font-size: 0.85rem; 
+            color: #666666; 
+            margin-bottom: 20px; 
+        }
+        
+        .social-buttons { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+        }
+        
+        .social-btn { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: #090909; 
+            border: 1px solid #1a1a1a; 
+            color: #ffffff; 
+            text-decoration: none; 
+            padding: 10px 18px; 
+            font-size: 0.85rem; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            transition: all 0.2s ease; 
+        }
+        
+        .social-btn:hover { 
+            transform: translateY(-2px); 
+        }
+        
         .social-btn.mail:hover { border-color: #0088ff; color: #0088ff; }
         .social-btn.youtube:hover { border-color: #ff0000; color: #ff0000; }
         .social-btn.instagram:hover { border-color: #e1306c; color: #e1306c; }
         
-        .main-footer { text-align: center; padding: 25px; font-size: 0.8rem; color: #333333; border-top: 1px solid #090909; }
+        .main-footer { 
+            text-align: center; 
+            padding: 25px; 
+            font-size: 0.8rem; 
+            color: #333333; 
+            border-top: 1px solid #090909; 
+        }
     </style>
 </head>
 <body>
 
+    <!-- ÜST BAR -->
     <header class="main-header">
         <div class="logo-container">
-            <a href="https://telefonhan.github.io/home"><img src="logo.png" alt="Telefonhan Logo" class="site-logo"></a>
+            <a href="https://telefonhan.github.io/home">
+                <img src="logo.png" alt="Telefonhan Logo" class="site-logo">
+            </a>
         </div>
         <div class="header-links">
             <a href="https://github.com/telefonhan" target="_blank"><i class="fa-brands fa-github"></i></a>
         </div>
     </header>
 
+    <!-- ANA İÇERİK -->
     <main class="container">
         <section class="hero-section">
             <h1 class="hero-title">Telefonhan Ecosystem</h1>
             <p class="hero-subtitle">Android dünyasına yönelik özelleştirilmiş çözümler, güncel arşivler ve topluluk merkezi.</p>
         </section>
 
-        <!-- GERÇEK ZAMANLI İSTATİSTİKLER -->
+        <!-- GERÇEK ZAMANLI ANİMASYONLU İSTATİSTİKLER -->
         <section class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" id="stat-cihazlar">-</div>
+                <div class="stat-number" id="stat-cihazlar">0</div>
                 <div class="stat-label">Desteklenen Cihaz</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="stat-indirme">-</div>
+                <div class="stat-number" id="stat-indirme">0</div>
                 <div class="stat-label">Toplam İndirme</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="stat-surumler">-</div>
+                <div class="stat-number" id="stat-surumler">0</div>
                 <div class="stat-label">Yayınlanan Sürüm</div>
             </div>
         </section>
@@ -91,6 +290,7 @@
             <div class="update-item"><span>Son Gapps Paketi:</span> <strong id="update-gapps">Yükleniyor...</strong></div>
         </section>
         
+        <!-- PROJE KARTLARI -->
         <div class="portal-grid">
             <a href="https://telefonhan.github.io/roms" class="portal-card">
                 <i class="fa-solid fa-microchip"></i>
@@ -109,8 +309,10 @@
             </a>
         </div>
 
+        <!-- İLETİŞİM ALANI -->
         <section class="contact-section">
             <h2>İletişim & Topluluk</h2>
+            <p>Bizimle iletişime geçmek veya projeleri takip etmek için aşağıdaki kanalları kullanabilirsiniz.</p>
             <div class="social-buttons">
                 <a href="mailto:iletisim@telefonhan.com" class="social-btn mail"><i class="fa-solid fa-envelope"></i> E-posta</a>
                 <a href="https://youtube.com/@Telefonhan" target="_blank" class="social-btn youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
@@ -119,20 +321,54 @@
         </section>
     </main>
 
-    <footer class="main-footer">&copy; 2026 Telefonhan Project.</footer>
+    <!-- FOOTER -->
+    <footer class="main-footer">&copy; 2026 Telefonhan Project. Tüm Hakları Saklıdır.</footer>
 
-    <!-- JSON VERİLERİNİ ÇEKEN JAVASCRIPT -->
+    <!-- SAYAÇ VE VERİ AYARLARI JAVASCRIPT -->
     <script>
-        fetch('data.json?v=' + Date.now()) // Önbelleği önlemek için zaman damgası ekledik
+        // Sayıları pürüzsüz artıran animasyon fonksiyonu
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                
+                let hasPlus = String(end).includes('+');
+                let targetNumber = parseInt(String(end).replace(/[^0-9]/g, ''), 10);
+                
+                let currentNumber = Math.floor(progress * (targetNumber - start) + start);
+                
+                // Binlik ayracı formatı (Örn: 1.500)
+                let formattedNumber = currentNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                
+                obj.innerText = formattedNumber + (hasPlus && progress === 1 ? '+' : '');
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // data.json'dan canlı verileri çek ve animasyonu tetikle
+        fetch('data.json?v=' + Date.now())
             .then(response => response.json())
             .then(data => {
-                document.getElementById('stat-cihazlar').innerText = data.cihazlar;
-                document.getElementById('stat-indirme').innerText = data.indirme;
-                document.getElementById('stat-surumler').innerText = data.surumler;
+                // Yazıları direkt basıyoruz
                 document.getElementById('update-rom').innerText = data.son_rom;
                 document.getElementById('update-gapps').innerText = data.son_gapps;
+
+                // İstatistik alanlarını seçiyoruz
+                const cihazlarEl = document.getElementById('stat-cihazlar');
+                const indirmeEl = document.getElementById('stat-indirme');
+                const surumlerEl = document.getElementById('stat-surumler');
+
+                // 1500ms (1.5 saniye) sürecek akıcı sayaç animasyonları
+                animateValue(cihazlarEl, 0, data.cihazlar, 1500);
+                animateValue(indirmeEl, 0, data.indirme, 1500);
+                animateValue(surumlerEl, 0, data.surumler, 1500);
             })
-            .catch(err => console.log("Veri çekme hatası:", err));
+            .catch(err => console.log("Veri yüklenirken hata oluştu:", err));
     </script>
 </body>
 </html>
