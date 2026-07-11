@@ -363,10 +363,10 @@
                 const indirmeEl = document.getElementById('stat-indirme');
                 const surumlerEl = document.getElementById('stat-surumler');
 
-                // 1500ms (1.5 saniye) sürecek akıcı sayaç animasyonları
-                animateValue(cihazlarEl, 0, data.cihazlar, 1500);
-                animateValue(indirmeEl, 0, data.indirme, 1500);
-                animateValue(surumlerEl, 0, data.surumler, 1500);
+                // 900ms (1.5 saniye) sürecek akıcı sayaç animasyonları
+                animateValue(cihazlarEl, 0, data.cihazlar, 900);
+                animateValue(indirmeEl, 0, data.indirme, 900);
+                animateValue(surumlerEl, 0, data.surumler, 900);
             })
             .catch(err => console.log("Veri yüklenirken hata oluştu:", err));
     </script>
